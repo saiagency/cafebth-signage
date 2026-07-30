@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>카페귀천 · Menu 2 · Brunch</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="menu-classic-page platter-page">
+  <div class="platter-board" data-page="menu2">
+    <div class="platter-board__inner">
+      <header class="platter-board__header">
+        <div class="platter-board__heading">
+          <p class="platter-board__eyebrow">CAFE GWICHEON</p>
+          <h1 class="platter-board__title">Platters</h1>
+          <p class="platter-board__tagline">브런치 플래터</p>
+        </div>
+
+        <aside class="platter-pricebox" aria-label="가격 안내">
+          <ul class="platter-pricebox__list" id="platter-pricebox">
+            <!-- js/menu.js -->
+          </ul>
+        </aside>
+      </header>
+
+      <main class="platter-board__main" id="menu-root" aria-live="polite">
+        <!-- 플래터 목록은 js/menu.js에서 렌더링 -->
+      </main>
+
+      <footer class="platter-board__footer">
+        <p class="platter-board__handle">@cafebth</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/menu.js" defer></script>
+</body>
+</html>

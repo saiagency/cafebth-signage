@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>카페귀천 · Slide</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="slide-page">
+  <div
+    class="slide-signage"
+    id="slide-signage"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="카페귀천 홍보 슬라이드"
+  >
+    <div class="slide-stage" id="slide-stage">
+      <!-- 슬라이드는 js/slide.js에서 렌더링 -->
+    </div>
+
+    <div class="slide-atmos" aria-hidden="true">
+      <div class="slide-atmos__sheen"></div>
+      <div class="slide-atmos__bloom"></div>
+      <div class="slide-atmos__sparkles" id="slide-sparkles"></div>
+    </div>
+
+    <div class="slide-fallback" id="slide-fallback" hidden>
+      <p class="slide-fallback__brand text-display">카페귀천</p>
+      <p class="slide-fallback__text">이미지를 불러오는 중입니다</p>
+    </div>
+
+    <div class="slide-chrome" aria-hidden="true">
+      <div class="slide-progress" id="slide-progress">
+        <span class="slide-progress__bar" id="slide-progress-bar"></span>
+      </div>
+      <div class="slide-dots" id="slide-dots" role="tablist" aria-label="슬라이드 위치"></div>
+    </div>
+
+    <p class="sr-only" id="slide-status" aria-live="polite"></p>
+  </div>
+
+  <script src="js/slide.js" defer></script>
+</body>
+</html>
