@@ -8,7 +8,7 @@
 
   const INTERVAL_MS = 20_000;
   const FADE_MS = 1200;
-  const SPARKLE_COUNT = 40;
+  const SPARKLE_COUNT = 18;
 
   const SLIDES = [
     {
@@ -171,11 +171,11 @@
     els.sparkles.innerHTML = Array.from({ length: SPARKLE_COUNT }, (_, i) => {
       const left = (i * 17 + 5) % 100;
       const top = (i * 23 + 9) % 100;
-      const size = 36 + (i % 5) * 16;
-      const delay = ((i * 0.16) % 2.4).toFixed(2);
-      const duration = (1.5 + (i % 4) * 0.35).toFixed(2);
+      const size = 10 + (i % 4) * 4;
+      const delay = ((i * 0.22) % 3.5).toFixed(2);
+      const duration = (2.2 + (i % 4) * 0.45).toFixed(2);
       const tone = i % 3 === 0 ? "rose" : i % 3 === 1 ? "mint" : "lilac";
-      const rise = 14 + (i % 4) * 8;
+      const rise = 8 + (i % 3) * 5;
 
       return `
         <span

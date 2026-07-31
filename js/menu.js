@@ -643,19 +643,38 @@
     highlightTimer = window.setInterval(pulse, 3600);
   };
 
-  const applyI18nLang = (root, langKey) => {
+  const applyI18nLang = (root, langKey, { animate = true } = {}) => {
     root.querySelectorAll("[data-i18n]").forEach((line) => {
       const langs = [...line.querySelectorAll(".classic-item__lang")];
       if (!langs.length) return;
 
       const available = langs.map((el) => el.dataset.lang);
-      const targetKey = available.includes(langKey)
-        ? langKey
-        : available[0];
+      const targetKey = available.includes(langKey) ? langKey : available[0];
+      const next = langs.find((el) => el.dataset.lang === targetKey);
+      const current = langs.find((el) => el.classList.contains("is-active"));
 
-      langs.forEach((el) => {
-        el.classList.toggle("is-active", el.dataset.lang === targetKey);
-      });
+      if (!next) return;
+      if (current === next) return;
+
+      if (!animate || prefersReducedMotion() || !current) {
+        langs.forEach((el) => {
+          el.classList.remove("is-active", "is-exit", "is-enter");
+          if (el === next) el.classList.add("is-active");
+        });
+        return;
+      }
+
+      current.classList.remove("is-active");
+      current.classList.add("is-exit");
+
+      next.classList.add("is-enter");
+      void next.offsetWidth;
+      next.classList.remove("is-enter");
+      next.classList.add("is-active");
+
+      window.setTimeout(() => {
+        current.classList.remove("is-exit");
+      }, 560);
     });
   };
 
@@ -666,13 +685,13 @@
     }
 
     i18nIndex = 0;
-    applyI18nLang(root, I18N_ORDER[i18nIndex]);
+    applyI18nLang(root, I18N_ORDER[i18nIndex], { animate: false });
 
     if (prefersReducedMotion()) return;
 
     i18nTimer = window.setInterval(() => {
       i18nIndex = (i18nIndex + 1) % I18N_ORDER.length;
-      applyI18nLang(root, I18N_ORDER[i18nIndex]);
+      applyI18nLang(root, I18N_ORDER[i18nIndex], { animate: true });
     }, I18N_INTERVAL_MS);
   };
 

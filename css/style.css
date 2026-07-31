@@ -948,15 +948,17 @@ table {
 }
 
 .classic-section__footnote {
-  margin-top: var(--space-4);
-  padding: 0.7rem 1.1rem;
+  margin-top: var(--space-5);
+  padding: 1.05rem 1.5rem;
   text-align: center;
   font-family: var(--font-classic-body);
-  font-size: var(--fs-md);
-  color: var(--classic-ink-soft);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--classic-ink);
   background: var(--classic-soft);
-  border: 1px solid var(--classic-line);
-  border-radius: 999px;
+  border: 2px solid var(--classic-rule);
+  border-radius: 6px;
 }
 
 .classic-item {
@@ -1021,34 +1023,49 @@ table {
 
 .classic-item__i18n {
   position: relative;
-  margin-top: 0.25rem;
-  min-height: 1.45em;
+  margin-top: 0.3rem;
+  height: 1.55em;
+  overflow: hidden;
   font-family: var(--font-classic-en);
   font-size: var(--fs-lg);
   font-weight: 500;
   font-style: italic;
   color: var(--classic-muted);
-  line-height: 1.35;
+  line-height: 1.55;
 }
 
 .classic-item__lang {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
   max-width: 100%;
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(110%);
   transition:
-    opacity 420ms var(--ease-out),
-    transform 420ms var(--ease-out);
+    opacity 520ms var(--ease-out),
+    transform 520ms var(--ease-out);
   pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.classic-item__lang.is-enter {
+  opacity: 0;
+  transform: translateY(110%);
+  transition: none;
 }
 
 .classic-item__lang.is-active {
-  position: relative;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.classic-item__lang.is-exit {
+  opacity: 0;
+  transform: translateY(-110%);
 }
 
 .classic-item__lang[lang="zh"],
@@ -1364,7 +1381,7 @@ table {
     rgba(255, 255, 255, 0.55) 42%,
     transparent 74%
   );
-  box-shadow: 0 0 18px 5px rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.55);
   filter: blur(0.15px);
   animation: slide-sparkle-twinkle var(--sdur) ease-in-out var(--sdelay) infinite;
 }
@@ -1373,33 +1390,33 @@ table {
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 214, 226, 0.92) 36%,
-    rgba(255, 200, 214, 0.35) 60%,
+    rgba(255, 205, 220, 0.9) 38%,
+    rgba(255, 190, 210, 0.35) 60%,
     transparent 76%
   );
-  box-shadow: 0 0 20px 6px rgba(255, 210, 222, 0.6);
+  box-shadow: 0 0 14px 4px rgba(255, 200, 218, 0.65);
 }
 
 .slide-sparkle--mint {
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
-    rgba(210, 240, 230, 0.92) 36%,
-    rgba(190, 230, 220, 0.35) 60%,
+    rgba(190, 230, 215, 0.9) 38%,
+    rgba(170, 220, 205, 0.35) 60%,
     transparent 76%
   );
-  box-shadow: 0 0 20px 6px rgba(200, 235, 225, 0.6);
+  box-shadow: 0 0 14px 4px rgba(185, 225, 210, 0.65);
 }
 
 .slide-sparkle--lilac {
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
-    rgba(226, 220, 255, 0.92) 36%,
-    rgba(210, 205, 245, 0.35) 60%,
+    rgba(210, 200, 250, 0.9) 38%,
+    rgba(195, 185, 240, 0.35) 60%,
     transparent 76%
   );
-  box-shadow: 0 0 20px 6px rgba(220, 214, 250, 0.6);
+  box-shadow: 0 0 14px 4px rgba(205, 198, 245, 0.65);
 }
 
 .slide-fallback {
@@ -1536,19 +1553,19 @@ table {
   0%,
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(-50%, -50%) scale(0.35);
   }
-  18% {
-    opacity: 0.85;
-    transform: translate(-50%, calc(-50% - (var(--srise, 14px) * 0.35))) scale(1);
+  20% {
+    opacity: 0.75;
+    transform: translate(-50%, calc(-50% - (var(--srise, 8px) * 0.4))) scale(0.95);
   }
-  42% {
-    opacity: 1;
-    transform: translate(-50%, calc(-50% - var(--srise, 14px))) scale(1.12);
+  45% {
+    opacity: 0.95;
+    transform: translate(-50%, calc(-50% - var(--srise, 8px))) scale(1.08);
   }
-  68% {
-    opacity: 0.4;
-    transform: translate(-50%, calc(-50% - (var(--srise, 14px) * 1.35))) scale(0.8);
+  70% {
+    opacity: 0.35;
+    transform: translate(-50%, calc(-50% - (var(--srise, 8px) * 1.3))) scale(0.8);
   }
 }
 
@@ -1590,14 +1607,14 @@ table {
    16. Brunch Platter Board (menu2.html)
    -------------------------------------------------------------------------- */
 .platter-page {
-  background: #ffffff;
+  background: #f3efe6;
 }
 
 .platter-board {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #ffffff;
+  background: #f3efe6;
   color: var(--classic-ink, #1a1614);
 }
 
@@ -1750,27 +1767,35 @@ table {
 
 .platter-card__content {
   min-width: 0;
-  padding-right: var(--space-4);
+  padding-inline: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .platter-card__name {
   font-family: var(--font-classic-body, "Noto Serif KR", serif);
-  font-size: clamp(2.8rem, 4.8vw, 4.4rem);
+  font-size: clamp(3.6rem, 6.2vw, 5.8rem);
   font-weight: 700;
   color: var(--classic-ink, #1a1614);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  padding-bottom: 0.55rem;
+  padding-bottom: 0.65rem;
   border-bottom: 2px solid var(--classic-rule, #a89884);
+  width: 100%;
+  max-width: 18em;
 }
 
 .platter-card__desc {
-  margin-top: 1rem;
+  margin-top: 1.15rem;
+  max-width: 18em;
   font-family: "Pretendard", "Noto Serif KR", sans-serif;
-  font-size: var(--fs-xl);
+  font-size: clamp(1.55rem, 2.4vw, 2.35rem);
   font-weight: 500;
   color: var(--classic-ink-soft, #3f3832);
-  line-height: 1.65;
+  line-height: 1.7;
   word-break: keep-all;
 }
 
