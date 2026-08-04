@@ -814,10 +814,29 @@ table {
 .menu-classic__header {
   position: relative;
   z-index: 2;
-  max-width: 78%;
-  padding-bottom: var(--space-4);
+  max-width: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block: clamp(1.8rem, 2.8vh, 3.2rem);
   border-bottom: 1px solid var(--classic-line);
   animation: fade-in-up var(--duration-slow) var(--ease-out) both;
+}
+
+.menu-classic__logo {
+  margin: 0;
+  line-height: 0;
+  padding-block: 0.35rem;
+}
+
+.menu-classic__logo img {
+  display: block;
+  width: min(48vw, 560px);
+  height: auto;
+  max-height: 12vh;
+  object-fit: contain;
+  object-position: right center;
 }
 
 .menu-classic__eyebrow {
@@ -1673,19 +1692,6 @@ table {
   color: var(--platter-forest-deep);
 }
 
-.platter-board__title::after {
-  content: attr(data-title);
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  z-index: -1;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(176, 141, 87, 0.35);
-  font-family: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-}
-
 .platter-board__tagline {
   margin: 1.4vh 0 0;
   font-family: "Cormorant Garamond", serif;
@@ -1927,6 +1933,15 @@ table {
 
 .platter-board__footer .platter-board__rule {
   margin-bottom: 2.4vh;
+}
+
+.platter-board__logo {
+  display: block;
+  width: min(24vw, 280px);
+  height: auto;
+  max-height: 6.5vh;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .platter-board__brand-name {
