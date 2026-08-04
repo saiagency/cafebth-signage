@@ -1888,6 +1888,25 @@ table {
   word-break: keep-all;
 }
 
+.platter-item__desc {
+  margin: 1vh 0 0;
+  max-width: clamp(260px, 22vw, 460px);
+  font-family: "Noto Sans KR", "Pretendard", sans-serif;
+  font-size: clamp(1.05rem, 1.05vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(42, 42, 36, 0.72);
+  word-break: keep-all;
+}
+
+.platter-item.side-left .platter-item__desc {
+  margin-right: auto;
+}
+
+.platter-item.side-right .platter-item__desc {
+  margin-left: auto;
+}
+
 .platter-item__price {
   margin: 1vh 0 0;
   font-family: "Cormorant Garamond", "Noto Serif KR", serif;
@@ -1960,6 +1979,12 @@ table {
   .platter-item.side-left .platter-item__eyebrow,
   .platter-item.side-right .platter-item__eyebrow {
     justify-content: center;
+  }
+
+  .platter-item.side-left .platter-item__desc,
+  .platter-item.side-right .platter-item__desc {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .platter-item.p-xl .platter-item__plate {

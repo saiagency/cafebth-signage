@@ -346,6 +346,8 @@
           nameKo: "귀천플래터",
           price: 20000,
           eyebrow: "Signature",
+          descKo:
+            "브레드, 베이컨, 소세지 2종, 스크램블에그, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-right bleed-right ov-1 z3 p-xl",
           image: "images/platter-gwicheon.jpg",
           alt: "귀천플래터",
@@ -355,6 +357,8 @@
           nameKo: "노을플래터",
           price: 20000,
           eyebrow: "Classic",
+          descKo:
+            "김치볶음밥, 계란후라이, 버섯, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-left bleed-left ov-2 z2 p-xl",
           image: "images/platter-noeul.jpg",
           alt: "노을플래터",
@@ -364,6 +368,8 @@
           nameKo: "소풍플래터",
           price: 20000,
           eyebrow: "Fresh",
+          descKo:
+            "프렌치토스트, 풀드포크, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-right bleed-right-md ov-3 z3 p-xl",
           image: "images/platter-sopung.jpg",
           alt: "소풍플래터",
@@ -518,6 +524,10 @@
   const renderPlatterItem = (item, index) => {
     const num = String(index + 1).padStart(2, "0");
     const layout = escapeHtml(item.layout || "");
+    const desc = cleanText(item.descKo);
+    const descHtml = desc
+      ? `<p class="platter-item__desc">${escapeHtml(desc)}</p>`
+      : "";
 
     return `
       <article
@@ -542,6 +552,7 @@
             ${escapeHtml(item.eyebrow || "")}
           </p>
           <h2 class="platter-item__name">${escapeHtml(item.nameKo)}</h2>
+          ${descHtml}
           <p class="platter-item__price">${formatPrice(item.price)}</p>
         </div>
       </article>
