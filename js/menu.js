@@ -362,6 +362,10 @@
           layout: "side-left bleed-left ov-2 z2 p-xl",
           image: "images/platter-noeul.jpg",
           alt: "노을플래터",
+          callout: {
+            title: "플래터 세트",
+            lines: ["음료 +5,000", "탄산 +3,000"],
+          },
         },
         {
           id: "sopung",
@@ -532,14 +536,35 @@
     const descHtml = desc
       ? `<p class="platter-item__desc">${escapeHtml(desc)}</p>`
       : "";
+    const callout = item.callout;
+    const calloutLines = Array.isArray(callout?.lines)
+      ? callout.lines
+      : callout?.body
+        ? [callout.body]
+        : [];
+    const calloutHtml = callout
+      ? `<aside class="platter-item__callout" aria-label="${escapeHtml(callout.title)}">
+          <p class="platter-item__callout-title">${escapeHtml(callout.title)}</p>
+          <div class="platter-item__callout-body">
+            ${calloutLines
+              .map(
+                (line) =>
+                  `<p class="platter-item__callout-line">${escapeHtml(line)}</p>`
+              )
+              .join("")}
+          </div>
+        </aside>`
+      : "";
+    const calloutClass = callout ? " has-callout" : "";
 
     return `
       <article
-        class="platter-item ${layout}"
+        class="platter-item ${layout}${calloutClass}"
         data-menu-item
         data-platter="${escapeHtml(item.id)}"
       >
         <div class="platter-item__plate-col">
+          ${calloutHtml}
           <div class="platter-item__plate">
             <img
               class="platter-item__image"
@@ -576,6 +601,7 @@
     requestAnimationFrame(() => {
       root.classList.add("is-ready");
       playEnterAnimations(root);
+      window.PlatterFx?.start(root);
     });
   };
 
