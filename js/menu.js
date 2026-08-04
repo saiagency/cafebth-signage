@@ -379,6 +379,8 @@
           nameKo: "아이스크림브라우니",
           price: 13000,
           eyebrow: "Sweet",
+          descKo:
+            "쫀득쫀득한 초콜릿 브라우니와 함께 달달한 초코시럽과 딸기시럽으로 실패 할 수 없는 조합! 추가로 진한 바닐라 아이스크림이 곁들여진 디저트",
           layout: "side-left bleed-left-sm ov-4 z2 p-l",
           image: "images/dessert-brownie.jpg",
           alt: "아이스크림브라우니",
@@ -388,6 +390,8 @@
           nameKo: "아이스크림크로플",
           price: 16000,
           eyebrow: "Dessert",
+          descKo:
+            "프랑스산 버터를 사용하여 더욱 고소한 크로플과 함께 진한 바닐라 아이스크림과 브라운치즈가 곁들여진 단짠단짠의 진수를 보여주는 카페귀천의 시그니쳐 디저트",
           layout: "side-right bleed-right-sm ov-5 z3 p-l",
           image: "images/dessert-croffle.jpg",
           alt: "아이스크림크로플",
