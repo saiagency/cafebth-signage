@@ -1877,6 +1877,8 @@ html:has(.platter-page) body {
   flex: 1;
   min-width: 0;
   position: relative;
+  z-index: 4;
+  overflow: visible;
 }
 
 .platter-item__callout {
@@ -2172,7 +2174,7 @@ html:has(.platter-page) body {
 
 .platter-item__desc {
   margin: 0.7vh 0 0;
-  max-width: clamp(320px, 32vw, 680px);
+  max-width: clamp(420px, 48vw, 920px);
   font-family: "Noto Sans KR", "Pretendard", sans-serif;
   font-size: clamp(1.25rem, 1.55vw, 2.2rem);
   font-weight: 400;
@@ -2181,11 +2183,17 @@ html:has(.platter-page) body {
   word-break: keep-all;
 }
 
-/* 01–03 platter composition text larger */
+/* 01–03 platter composition text larger / wider */
 .platter-item:nth-child(-n + 3) .platter-item__desc {
   font-size: clamp(1.45rem, 1.9vw, 2.7rem);
   line-height: 1.6;
-  max-width: clamp(360px, 36vw, 760px);
+  max-width: clamp(520px, 56vw, 1100px);
+}
+
+/* 귀천·노을: 설명란을 더 넓게 (이미지 레이어와 겹침 허용) */
+.platter-item:nth-child(1) .platter-item__desc,
+.platter-item:nth-child(2) .platter-item__desc {
+  max-width: clamp(560px, 62vw, 1200px);
 }
 
 .platter-item.side-left .platter-item__desc {

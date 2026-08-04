@@ -347,7 +347,7 @@
           price: 20000,
           eyebrow: "Signature",
           descKo:
-            "브레드, 베이컨, 소세지 2종, 스크램블에그, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+            "브레드, 베이컨, 소세지 2종, 스크램블에그, 샐러드,\n방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-right bleed-right ov-1 z3 p-xl",
           image: "images/platter-gwicheon.jpg",
           alt: "귀천플래터",
@@ -358,7 +358,7 @@
           price: 20000,
           eyebrow: "Classic",
           descKo:
-            "김치볶음밥, 계란후라이, 버섯, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+            "김치볶음밥, 계란후라이, 버섯, 샐러드, 방울토마토,\n리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-left bleed-left ov-2 z2 p-xl",
           image: "images/platter-noeul.jpg",
           alt: "노을플래터",
@@ -373,9 +373,9 @@
           price: 20000,
           eyebrow: "Fresh",
           descKo:
-            "프렌치토스트, 풀드포크, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+            "프렌치토스트, 풀드포크, 샐러드, 방울토마토,\n리코타치즈, 베이크드빈, 블랙올리브",
           layout: "side-right bleed-right-md ov-3 z3 p-xl",
-          image: "images/platter-sopung.jpg",
+          image: "images/platter-sopung.jpg?v=20260804as",
           alt: "소풍플래터",
         },
         {
@@ -384,9 +384,9 @@
           price: 13000,
           eyebrow: "Sweet",
           descKo:
-            "쫀득쫀득한 초콜릿 브라우니와 함께 달달한 초코시럽과 딸기시럽으로 실패 할 수 없는 조합! 추가로 진한 바닐라 아이스크림이 곁들여진 디저트",
+            "쫀득쫀득한 초콜릿 브라우니와 함께\n달달한 초코시럽과 딸기시럽으로 실패 할 수 없는 조합!\n추가로 진한 바닐라 아이스크림이 곁들여진 디저트",
           layout: "side-left bleed-left-sm ov-4 z2 p-l",
-          image: "images/dessert-brownie.jpg",
+          image: "images/dessert-brownie.jpg?v=20260804at",
           alt: "아이스크림브라우니",
         },
         {
@@ -395,7 +395,7 @@
           price: 16000,
           eyebrow: "Dessert",
           descKo:
-            "프랑스산 버터를 사용하여 더욱 고소한 크로플과 함께 진한 바닐라 아이스크림과 브라운치즈가 곁들여진 단짠단짠의 진수를 보여주는 카페귀천의 시그니쳐 디저트",
+            "프랑스산 버터를 사용하여 더욱 고소한 크로플과 함께\n진한 바닐라 아이스크림과 브라운치즈가 곁들여진\n단짠단짠의 진수를 보여주는 카페귀천의 시그니쳐 디저트",
           layout: "side-right bleed-right-sm ov-5 z3 p-l",
           image: "images/dessert-croffle.jpg",
           alt: "아이스크림크로플",
@@ -532,9 +532,12 @@
   const renderPlatterItem = (item, index) => {
     const num = String(index + 1).padStart(2, "0");
     const layout = escapeHtml(item.layout || "");
-    const desc = cleanText(item.descKo);
+    const desc = String(item.descKo ?? "")
+      .replace(/[^\S\n]+/g, " ")
+      .replace(/\n+/g, "\n")
+      .trim();
     const descHtml = desc
-      ? `<p class="platter-item__desc">${escapeHtml(desc)}</p>`
+      ? `<p class="platter-item__desc">${escapeHtml(desc).replaceAll("\n", "<br>")}</p>`
       : "";
     const callout = item.callout;
     const calloutLines = Array.isArray(callout?.lines)
