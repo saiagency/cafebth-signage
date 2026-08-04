@@ -7,7 +7,7 @@
   "use strict";
 
   const I18N_INTERVAL_MS = 4000;
-  const I18N_ORDER = ["en", "ja", "zh"];
+  const I18N_ORDER = ["en", "ja", "zh", "th"];
 
   /* --------------------------------------------------------------------------
      Menu Data (from menu_202607.xlsx · menu sheet)
@@ -31,6 +31,7 @@
               nameEn: "Cheon Sang-Byeong Drip Coffee",
               nameJa: "チョンサンビョン ドリップコーヒー",
               nameZh: "天尚咖啡 (手冲咖啡)",
+              nameTh: "กาแฟดริปชอนซังบยอง",
               price: 8000,
               desc: "시나몬 뉘앙스의 스페셜티 싱글오리진 원두",
               best: true,
@@ -40,6 +41,7 @@
               nameEn: "Mazagran",
               nameJa: "マザグラン",
               nameZh: "马扎格兰",
+              nameTh: "มาซาแกรน",
               price: 8000,
               desc: "상큼한 포르투갈식 레몬커피",
               best: true,
@@ -49,6 +51,7 @@
               nameEn: "Flat Peach Ade",
               nameJa: "ドーナツピーチエード",
               nameZh: "蟠桃气泡饮",
+              nameTh: "เอเดพีชแบน",
               price: 8000,
               desc: "스페인에서 온 납짝복숭아로 만든 에이드",
               best: true,
@@ -65,6 +68,7 @@
               nameEn: "Americano",
               nameJa: "アメリカーノ",
               nameZh: "美式咖啡",
+              nameTh: "อเมริกาโน",
               price: 6000,
             },
             {
@@ -72,6 +76,7 @@
               nameEn: "Cafe Latte",
               nameJa: "カフェラテ",
               nameZh: "拿铁",
+              nameTh: "คาเฟ่ลาเต้",
               price: 6500,
             },
             {
@@ -79,6 +84,7 @@
               nameEn: "Cappuccino",
               nameJa: "カプチーノ",
               nameZh: "卡布奇诺",
+              nameTh: "คาปูชิโน",
               price: 6500,
             },
             {
@@ -86,6 +92,7 @@
               nameEn: "Vanilla Latte",
               nameJa: "バニララテ",
               nameZh: "香草拿铁",
+              nameTh: "วานิลลาลาเต้",
               price: 7000,
             },
             {
@@ -93,6 +100,7 @@
               nameEn: "Dolce Latte",
               nameJa: "ドルチェラテ",
               nameZh: "炼乳拿铁",
+              nameTh: "ลาเต้นมข้นหวาน",
               price: 7000,
             },
             {
@@ -100,6 +108,7 @@
               nameEn: "Cafe Mocha",
               nameJa: "カフェモカ",
               nameZh: "摩卡",
+              nameTh: "คาเฟ่มอคค่า",
               price: 7000,
             },
             {
@@ -107,6 +116,7 @@
               nameEn: "Caramel Macchiato",
               nameJa: "キャラメルマキアート",
               nameZh: "焦糖玛奇朵",
+              nameTh: "คาราเมลแมคคิอาโต",
               price: 7000,
             },
           ],
@@ -121,6 +131,7 @@
               nameEn: "Classic Green",
               nameJa: "クラシックグリーン",
               nameZh: "经典绿茶",
+              nameTh: "คลาสสิกกรีน (ชาเขียว)",
               price: 7500,
             },
             {
@@ -128,6 +139,7 @@
               nameEn: "Green Angel",
               nameJa: "グリーンエンジェル",
               nameZh: "绿天使",
+              nameTh: "กรีนแองเจิล",
               price: 7500,
             },
             {
@@ -135,6 +147,7 @@
               nameEn: "Earl Grey",
               nameJa: "アールグレイ",
               nameZh: "伯爵茶",
+              nameTh: "เอิร์ลเกรย์",
               price: 7500,
             },
             {
@@ -142,6 +155,7 @@
               nameEn: "English Breakfast",
               nameJa: "イングリッシュブレックファースト",
               nameZh: "英式早餐茶",
+              nameTh: "อิงลิชเบรกฟาสต์",
               price: 7500,
             },
             {
@@ -149,6 +163,7 @@
               nameEn: "Jasmine",
               nameJa: "ジャスミン",
               nameZh: "茉莉花茶",
+              nameTh: "จัสมิน",
               price: 7500,
             },
             {
@@ -156,6 +171,7 @@
               nameEn: "Lemon Sky",
               nameJa: "レモンスカイ",
               nameZh: "柠檬天空",
+              nameTh: "เลมอนสกาย",
               price: 7500,
               badge: "decaf",
             },
@@ -164,6 +180,7 @@
               nameEn: "Camomile",
               nameJa: "カモミール",
               nameZh: "洋甘菊",
+              nameTh: "คาโมมายล์",
               price: 7500,
               badge: "decaf",
             },
@@ -172,6 +189,7 @@
               nameEn: "Winter Dream",
               nameJa: "ウィンタードリーム",
               nameZh: "冬日梦境",
+              nameTh: "วินเทอร์ดรีม",
               price: 7500,
               badge: "decaf",
             },
@@ -186,6 +204,7 @@
               nameEn: "Quince Ade",
               nameJa: "かりんエード",
               nameZh: "木瓜气泡饮",
+              nameTh: "เอเดมะตูม",
               price: 7500,
             },
             {
@@ -193,6 +212,7 @@
               nameEn: "Strawberry Ade",
               nameJa: "いちごエード",
               nameZh: "草莓气泡饮",
+              nameTh: "เอเดสตรอว์เบอร์รี",
               price: 7500,
             },
             {
@@ -200,6 +220,7 @@
               nameEn: "Lemon Ade",
               nameJa: "レモネード",
               nameZh: "柠檬气泡饮",
+              nameTh: "เอเดเลมอน",
               price: 7500,
             },
             {
@@ -207,6 +228,7 @@
               nameEn: "Grapefruit Ade",
               nameJa: "グレープフルーツエード",
               nameZh: "西柚气泡饮",
+              nameTh: "เอเดเกรปฟรุต",
               price: 7500,
             },
             {
@@ -214,6 +236,7 @@
               nameEn: "Passionfruit Ade",
               nameJa: "パッションフルーツエード",
               nameZh: "百香果气泡饮",
+              nameTh: "เอเดเสาวรส",
               price: 7500,
             },
           ],
@@ -227,6 +250,7 @@
               nameEn: "Strawberry Latte",
               nameJa: "いちごラテ",
               nameZh: "草莓拿铁",
+              nameTh: "สตรอว์เบอร์รีลาเต้",
               price: 7000,
               badge: "ice",
             },
@@ -235,6 +259,7 @@
               nameEn: "Purple Sweet Potato Latte",
               nameJa: "紫芋ラテ",
               nameZh: "紫薯拿铁",
+              nameTh: "ลาเต้มันม่วง",
               price: 7000,
             },
             {
@@ -242,6 +267,7 @@
               nameEn: "Sweet Pumpkin Latte",
               nameJa: "かぼちゃラテ",
               nameZh: "南瓜拿铁",
+              nameTh: "ลาเต้ฟักทอง",
               price: 7000,
             },
             {
@@ -249,6 +275,7 @@
               nameEn: "Choco Latte",
               nameJa: "チョコラテ",
               nameZh: "巧克力拿铁",
+              nameTh: "ช็อกโกแลตลาเต้",
               price: 7000,
             },
             {
@@ -256,6 +283,7 @@
               nameEn: "Red Bean Latte",
               nameJa: "あずきラテ",
               nameZh: "红豆拿铁",
+              nameTh: "ลาเต้ถั่วแดง",
               price: 7000,
             },
             {
@@ -263,6 +291,7 @@
               nameEn: "Ginger Latte",
               nameJa: "ジンジャーラテ",
               nameZh: "姜味拿铁",
+              nameTh: "ขิงลาเต้",
               price: 7000,
               badge: "hot",
             },
@@ -277,6 +306,7 @@
               nameEn: "Quince Tea",
               nameJa: "かりん茶",
               nameZh: "木瓜茶",
+              nameTh: "ชามะตูม",
               price: 6500,
             },
             {
@@ -284,6 +314,7 @@
               nameEn: "Lemon Tea",
               nameJa: "レモンティー",
               nameZh: "柠檬茶",
+              nameTh: "ชาเลมอน",
               price: 6500,
             },
             {
@@ -291,6 +322,7 @@
               nameEn: "Grapefruit Tea",
               nameJa: "グレープフルーツティー",
               nameZh: "西柚茶",
+              nameTh: "ชาเกรปฟรุต",
               price: 6500,
             },
             {
@@ -298,6 +330,7 @@
               nameEn: "Passionfruit Tea",
               nameJa: "パッションフルーツティー",
               nameZh: "百香果茶",
+              nameTh: "ชาเสาวรส",
               price: 6500,
             },
             {
@@ -305,6 +338,7 @@
               nameEn: "Ginger Tea",
               nameJa: "生姜茶",
               nameZh: "姜茶",
+              nameTh: "ชาขิง",
               price: 6500,
               badge: "hot",
             },
@@ -313,6 +347,7 @@
               nameEn: "Lemon Ginger Tea",
               nameJa: "レモンジンジャーティー",
               nameZh: "柠檬姜茶",
+              nameTh: "ชาเลมอนขิง",
               price: 6500,
               badge: "hot",
             },
@@ -321,14 +356,16 @@
               nameEn: "Iced Tea",
               nameJa: "アイスティー",
               nameZh: "冰红茶",
+              nameTh: "ชาเย็น",
               price: 6000,
               badge: "ice",
             },
             {
               nameKo: "아샷추",
-              nameEn: "Ashatchu",
+              nameEn: "Ashatchu / Peach iced tea with espresso",
               nameJa: "アイスティーエスプレッソ",
               nameZh: "冰茶特调(加浓缩咖啡)",
+              nameTh: "ชาเย็นพีชผสมเอสเปรสโซ",
               price: 7000,
               badge: "ice",
             },
@@ -402,12 +439,73 @@
         },
       ],
     },
+    menu3: {
+      id: "menu3",
+      layout: "summer-cards",
+      label: "Summer",
+      basePage: "menu1",
+      signatureId: "signature",
+      rows: [
+        ["coffee", "latte"],
+        ["ronnefeldt-tea", "tea-beverages"],
+        ["handmade-ade", "smoothie"],
+      ],
+      titleOverrides: {
+        signature: "SIGNATURE",
+        coffee: "COFFEE",
+        latte: "LATTE",
+        "ronnefeldt-tea": "Ronnefeldt Tea",
+        "handmade-ade": "Fruit Ade",
+        "tea-beverages": "Tea",
+        smoothie: "Smoothie",
+      },
+      extraCategories: [
+        {
+          id: "smoothie",
+          titleEn: "Smoothie",
+          items: [
+            {
+              nameKo: "블루베리",
+              nameEn: "Blueberry",
+              nameJa: "ブルーベリー",
+              nameZh: "蓝莓",
+              nameTh: "บลูเบอร์รี",
+              price: 7000,
+            },
+            {
+              nameKo: "망고",
+              nameEn: "Mango",
+              nameJa: "マンゴー",
+              nameZh: "芒果",
+              nameTh: "มะม่วง",
+              price: 7000,
+            },
+            {
+              nameKo: "딸기레몬",
+              nameEn: "Strawberry Lemon",
+              nameJa: "いちごレモン",
+              nameZh: "草莓柠檬",
+              nameTh: "สตรอว์เบอร์รีเลมอน",
+              price: 7000,
+            },
+            {
+              nameKo: "쿠앤크",
+              nameEn: "Cookies & Cream",
+              nameJa: "クッキーアンドクリーム",
+              nameZh: "奥利奥",
+              nameTh: "คุกกี้แอนด์ครีม",
+              price: 7000,
+            },
+          ],
+        },
+      ],
+    },
   };
 
   const BADGE_LABELS = {
     ice: "ICE only",
     hot: "HOT only",
-    decaf: "디카페인",
+    decaf: "Decaf",
   };
 
   /* --------------------------------------------------------------------------
@@ -445,6 +543,7 @@
       { key: "en", text: cleanText(item.nameEn) },
       { key: "ja", text: cleanText(item.nameJa) },
       { key: "zh", text: cleanText(item.nameZh) },
+      { key: "th", text: cleanText(item.nameTh) },
     ].filter((entry) => entry.text);
 
     if (!langs.length) return "";
@@ -608,9 +707,132 @@
     });
   };
 
+  const SUMMER_BADGE_LABELS = {
+    ice: "Only Ice",
+    hot: "Only Hot",
+    decaf: "Decaf",
+  };
+
+  const renderSummerBadge = (badge) => {
+    if (!badge || !SUMMER_BADGE_LABELS[badge]) return "";
+    return `<span class="summer-tag summer-tag--${badge}">${SUMMER_BADGE_LABELS[badge]}</span>`;
+  };
+
+  const getSummerCategories = (page) => {
+    const base = page.basePage ? MENU_PAGES[page.basePage] : null;
+    const baseCats = base?.categories ? [...base.categories] : [];
+    const extra = Array.isArray(page.extraCategories) ? page.extraCategories : [];
+    return [...baseCats, ...extra];
+  };
+
+  const summerTitle = (page, category) => {
+    const override = page.titleOverrides?.[category.id];
+    return override || category.titleEn || category.id;
+  };
+
+  const renderSummerSignature = (page, category) => {
+    if (!category) return "";
+    const items = category.items
+      .map(
+        (item) => `
+      <li class="summer-list__item" data-menu-item>
+        <div class="summer-list__name">
+          <span class="summer-list__ko">${escapeHtml(item.nameKo)}</span>
+          ${renderI18nLine(item)}
+        </div>
+        <span class="summer-list__price">${formatPrice(item.price)}</span>
+      </li>`
+      )
+      .join("");
+
+    return `
+      <section class="summer-section summer-section--signature">
+        <div class="summer-section__head">
+          <h2 class="summer-section__title">${escapeHtml(summerTitle(page, category))}</h2>
+          <span class="summer-section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="summer-card">
+          <ul class="summer-list summer-sig-list">${items}</ul>
+        </div>
+      </section>
+    `;
+  };
+
+  const renderSummerListCategory = (page, category) => {
+    if (!category) return "";
+    const note = category.footnote
+      ? `<span class="summer-section__note">${escapeHtml(category.footnote)}</span>`
+      : "";
+    const items = category.items
+      .map(
+        (item) => `
+      <li class="summer-list__item" data-menu-item>
+        <div class="summer-list__name">
+          <span class="summer-list__ko">${escapeHtml(item.nameKo)}</span>
+          ${renderI18nLine(item)}
+          ${renderSummerBadge(item.badge)}
+        </div>
+        <span class="summer-list__price">${formatPrice(item.price)}</span>
+      </li>`
+      )
+      .join("");
+
+    return `
+      <div class="summer-col">
+        <div class="summer-section__head">
+          <h2 class="summer-section__title">${escapeHtml(summerTitle(page, category))}</h2>
+          ${note}
+          <span class="summer-section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="summer-card">
+          <ul class="summer-list">${items}</ul>
+        </div>
+      </div>
+    `;
+  };
+
+  const renderSummerPage = (page) => {
+    const root = document.getElementById("menu-root");
+    if (!root) return;
+
+    const byId = Object.fromEntries(
+      getSummerCategories(page).map((category) => [category.id, category])
+    );
+    const signatureHtml = renderSummerSignature(page, byId[page.signatureId]);
+    const rowsHtml = (page.rows || [])
+      .map((pair) => {
+        const cols = pair
+          .map((id) => renderSummerListCategory(page, byId[id]))
+          .join("");
+        return `
+          <section class="summer-section summer-section--pair">
+            <div class="summer-row">${cols}</div>
+          </section>
+        `;
+      })
+      .join("");
+
+    root.innerHTML = `
+      <div class="summer-menu">
+        ${signatureHtml}
+        ${rowsHtml}
+      </div>
+    `;
+
+    requestAnimationFrame(() => {
+      root.classList.add("is-ready");
+      startI18nRotation(root);
+    });
+  };
+
   const renderPage = (page) => {
     if (page.layout === "platter") {
       renderPlatterPage(page);
+      return;
+    }
+
+    if (page.layout === "summer-cards") {
+      renderSummerPage(page);
       return;
     }
 
@@ -764,7 +986,7 @@
     }
 
     const board = document.querySelector(
-      ".menu-classic, .menu-board, .platter-board"
+      ".menu-classic, .menu-board, .platter-board, .summer-board"
     );
     if (board) board.dataset.page = pageId;
 
@@ -782,7 +1004,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const board = document.querySelector(
-      ".menu-classic, .menu-board, .platter-board"
+      ".menu-classic, .menu-board, .platter-board, .summer-board"
     );
     const pageId = board?.dataset.page || "menu1";
     initMenuPage(pageId);

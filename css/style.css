@@ -9,7 +9,7 @@
    - Montserrat (Google Fonts): display / Latin headlines
    - Pretendard (CDN): Korean body & UI — Google Fonts에 없으므로 CDN 사용
    -------------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Gowun+Batang:wght@400;700&family=Jua&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poor+Story&display=swap");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 /* --------------------------------------------------------------------------
@@ -767,7 +767,7 @@ table {
   --fs-6xl: 6.75rem;
   --fs-hero: 9rem;
 
-  --classic-bg: #ffffff;
+  --classic-bg: #f7f2e7;
   --classic-ink: #1a1614;
   --classic-ink-soft: #3f3832;
   --classic-muted: #5f564c;
@@ -785,6 +785,9 @@ table {
   height: 100%;
   overflow: hidden;
   background: var(--classic-bg);
+  background-image:
+    radial-gradient(ellipse at top, rgba(176, 141, 87, 0.10), transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(30, 58, 43, 0.06), transparent 60%);
   color: var(--classic-ink);
 }
 
@@ -802,7 +805,23 @@ html:has(.menu-classic-page) body {
   height: 100dvh;
   max-height: 100dvh;
   overflow: hidden;
-  background: var(--classic-bg);
+  background-color: transparent;
+}
+
+.menu-classic::before {
+  content: "";
+  position: absolute;
+  left: -180px;
+  bottom: 0;
+  z-index: 1;
+  width: min(144vw, 1680px);
+  aspect-ratio: 742 / 375;
+  background-image: url("../images/bg-menu1-cafe.png?v=20260804bo");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% auto;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .menu-classic__inner {
@@ -1051,7 +1070,7 @@ html:has(.menu-classic-page) body {
   font-size: var(--fs-lg);
   font-weight: 500;
   font-style: italic;
-  color: var(--classic-muted);
+  color: var(--classic-ink-soft);
   line-height: 1.3;
 }
 
@@ -1064,7 +1083,7 @@ html:has(.menu-classic-page) body {
   font-size: var(--fs-lg);
   font-weight: 500;
   font-style: italic;
-  color: var(--classic-muted);
+  color: var(--classic-ink-soft);
   line-height: 1.55;
 }
 
@@ -1106,6 +1125,12 @@ html:has(.menu-classic-page) body {
 .classic-item__lang[lang="ja"] {
   font-style: normal;
   font-family: "Noto Serif KR", "PingFang SC", "Hiragino Sans", serif;
+}
+
+.classic-item__lang[lang="th"] {
+  font-style: normal;
+  font-family: "Noto Sans Thai", "Sarabun", sans-serif;
+  font-weight: 500;
 }
 
 .classic-item__price {
@@ -2535,5 +2560,439 @@ html:has(.platter-page) body {
 
   .platter-item.is-spotlight .platter-item__plate {
     transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. Summer Menu Board (menu3.html)
+   -------------------------------------------------------------------------- */
+.summer-page {
+  --summer-ink: #1d3a4f;
+  --summer-coral: #ff7a68;
+  --summer-gold: #ffb648;
+  --summer-leaf: #2fae86;
+  --summer-card: rgba(255, 250, 240, 0.93);
+  --summer-card-line: #f0d9ae;
+  --summer-muted: #5f7d8f;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1a3a;
+  color: var(--summer-ink);
+  font-family: "Gowun Batang", "Noto Serif KR", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html:has(.summer-page),
+html:has(.summer-page) body {
+  height: 100%;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.summer-board {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.summer-board__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.summer-board__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 10, 50, 0.18) 0%,
+    rgba(20, 10, 50, 0.04) 28%,
+    rgba(20, 10, 50, 0) 52%,
+    rgba(20, 10, 50, 0.12) 100%
+  );
+  pointer-events: none;
+}
+
+.summer-board__inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--signage-width));
+  height: 100%;
+  max-height: 100dvh;
+  margin-inline: auto;
+  padding: 2.2vh 3.2vw 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.summer-board__header {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.summer-board__logo {
+  width: min(28vw, 360px);
+  margin: 0 auto 1.8vh;
+}
+
+.summer-board__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 7vh;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.28));
+}
+
+.summer-board__masthead {
+  margin-bottom: 1.4vh;
+}
+
+.summer-board__kicker {
+  margin: 0 0 0.4vh;
+  font-family: "Poor Story", cursive;
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+  letter-spacing: 0.35em;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.summer-board__title {
+  margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: clamp(4.2rem, 8vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #fff;
+  -webkit-text-stroke: 0.045em var(--summer-coral);
+  text-shadow:
+    0.04em 0.055em 0 var(--summer-coral),
+    0 0.08em 0.22em rgba(0, 0, 0, 0.32);
+}
+
+.summer-board__sub {
+  display: inline-block;
+  margin: 1vh 0 0;
+  padding: 0.55em 1.2em;
+  border-radius: 999px;
+  font-family: "Jua", sans-serif;
+  font-size: clamp(1.15rem, 1.5vw, 2rem);
+  color: var(--summer-ink);
+  background: #fffaf0;
+  box-shadow: 0 4px 0 var(--summer-card-line);
+}
+
+.summer-board__main {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35vh;
+  overflow: visible;
+}
+
+.summer-menu {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35vh;
+}
+
+.summer-section {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.summer-section--signature {
+  flex: 0 0 auto;
+}
+
+.summer-section--pair {
+  flex: 0 0 auto;
+}
+
+.summer-row {
+  display: flex;
+  gap: 2vw;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.summer-row > .summer-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.summer-section__head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7vh;
+  flex-shrink: 0;
+}
+
+.summer-section__title {
+  margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.2vw, 2.8rem);
+  color: #fff;
+  text-shadow:
+    2px 3px 0 var(--summer-coral),
+    0 4px 14px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.summer-section__note {
+  margin: 0;
+  padding: 0.2em 0.85em;
+  border-radius: 999px;
+  border: 2px dashed var(--summer-leaf);
+  background: #eafaf1;
+  font-family: "Poor Story", cursive;
+  font-size: clamp(0.95rem, 1.1vw, 1.35rem);
+  color: var(--summer-leaf);
+  white-space: nowrap;
+}
+
+.summer-section__rule {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.75) 0 14px,
+    transparent 14px 24px
+  );
+}
+
+.summer-card {
+  background: var(--summer-card);
+  border: 3px solid var(--summer-card-line);
+  border-radius: clamp(1.2rem, 1.6vw, 2rem);
+  padding: clamp(1rem, 1.4vw, 1.8rem) clamp(1.2rem, 1.8vw, 2.4rem);
+  box-shadow:
+    0 10px 0 rgba(31, 60, 80, 0.08),
+    0 16px 36px rgba(20, 30, 50, 0.18);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.summer-sig-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.summer-sig-list .summer-list__item {
+  padding: 0.35em 0;
+}
+
+.summer-sig-list .summer-list__ko {
+  font-size: clamp(1.45rem, 1.9vw, 2.35rem);
+}
+
+.summer-sig-list .summer-list__price {
+  font-size: clamp(1.45rem, 1.9vw, 2.35rem);
+}
+
+.summer-sig-list .classic-item__i18n {
+  font-size: 0.72em;
+}
+
+.summer-sig-row {
+  display: flex;
+  gap: clamp(1.2rem, 2vw, 2.4rem);
+}
+
+.summer-sig-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 0;
+}
+
+.summer-sig-item__ko {
+  margin: 0;
+  font-family: "Jua", sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.4rem);
+  color: var(--summer-ink);
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+.summer-sig-item__en {
+  margin: 0.25em 0 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.45vw, 1.85rem);
+  color: var(--summer-coral);
+  line-height: 1.25;
+}
+
+.summer-sig-item__desc {
+  margin: 0.45em 0 0;
+  font-family: "Gowun Batang", "Noto Serif KR", serif;
+  font-size: clamp(1rem, 1.2vw, 1.45rem);
+  color: var(--summer-muted);
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.summer-sig-item__price {
+  margin: 0.7em 0 0;
+  padding-top: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 2.3vw, 2.8rem);
+  color: var(--summer-gold);
+}
+
+.summer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.summer-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding: 0.45em 0;
+  border-bottom: 2px dotted #e4d3ab;
+}
+
+.summer-list__item:last-child {
+  border-bottom: none;
+}
+
+.summer-list__name {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 0.4rem 0.55rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  font-family: "Jua", sans-serif;
+  font-size: clamp(1.35rem, 1.8vw, 2.3rem);
+  color: var(--summer-ink);
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+.summer-list__ko {
+  flex-shrink: 0;
+}
+
+.summer-list__name .classic-item__i18n {
+  flex: 1 1 auto;
+  min-width: 4em;
+  max-width: 100%;
+  margin: 0;
+  height: 1.2em;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--summer-coral);
+  line-height: 1.2;
+}
+
+.summer-list__name .classic-item__lang[lang="zh"],
+.summer-list__name .classic-item__lang[lang="ja"] {
+  font-family: "Noto Serif KR", "PingFang SC", "Hiragino Sans", serif;
+  font-weight: 600;
+}
+
+.summer-list__name .classic-item__lang[lang="th"] {
+  font-family: "Noto Sans Thai", "Sarabun", sans-serif;
+  font-weight: 600;
+}
+
+.summer-list__name .summer-tag {
+  flex-shrink: 0;
+}
+
+.summer-list__price {
+  flex-shrink: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 1.7vw, 2.15rem);
+  color: var(--summer-gold);
+  white-space: nowrap;
+}
+
+.summer-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12em 0.65em;
+  border-radius: 999px;
+  font-family: "Poor Story", cursive;
+  font-size: 0.62em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.summer-tag--ice {
+  background: #dff3ff;
+  color: #1f8fb0;
+}
+
+.summer-tag--hot {
+  background: #ffe3d9;
+  color: var(--summer-coral);
+}
+
+.summer-tag--decaf {
+  background: #fdeec8;
+  color: #b3791b;
+}
+
+.summer-board__footer {
+  flex-shrink: 0;
+  margin-top: 1.2vh;
+  text-align: center;
+  font-family: "Poor Story", cursive;
+  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+  letter-spacing: 0.22em;
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 900px) {
+  .summer-row {
+    flex-direction: column;
+    gap: 1.2vh;
+  }
+
+  .summer-board__inner {
+    padding: 1.5vh 4vw 1000px;
+    overflow: auto;
   }
 }
