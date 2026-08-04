@@ -4,36 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>카페귀천 · Menu 2 · Brunch</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <link rel="stylesheet" href="css/style.css?v=20260804c" />
 </head>
-<body class="menu-classic-page platter-page">
+<body class="platter-page">
   <div class="platter-board" data-page="menu2">
     <div class="platter-board__inner">
-      <header class="platter-board__header">
-        <div class="platter-board__heading">
-          <p class="platter-board__eyebrow">CAFE GWICHEON</p>
-          <h1 class="platter-board__title">Platters</h1>
-          <p class="platter-board__tagline">브런치 플래터</p>
-        </div>
+      <div class="platter-brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
 
-        <aside class="platter-pricebox" aria-label="가격 안내">
-          <ul class="platter-pricebox__list" id="platter-pricebox">
-            <!-- js/menu.js -->
-          </ul>
-        </aside>
+      <header class="platter-board__header">
+        <h1 class="platter-board__title" data-title="BRUNCH">BRUNCH</h1>
+        <p class="platter-board__tagline">Platters &amp; Desserts</p>
+        <div class="platter-board__rule" aria-hidden="true"></div>
       </header>
 
       <main class="platter-board__main" id="menu-root" aria-live="polite">
-        <!-- 플래터 목록은 js/menu.js에서 렌더링 -->
+        <!-- 메뉴는 js/menu.js에서 렌더링 -->
       </main>
 
       <footer class="platter-board__footer">
-        <p class="platter-board__handle">@cafebth</p>
+        <div class="platter-board__rule" aria-hidden="true"></div>
+        <p class="platter-board__brand-name">카페귀천</p>
+        <p class="platter-board__brand-sub">Brunch &amp; Coffee</p>
       </footer>
     </div>
   </div>
 
-  <script src="js/menu.js" defer></script>
-  <script src="js/refresh.js" defer></script>
+  <script src="js/menu.js?v=20260804c" defer></script>
+  <script src="js/refresh.js?v=20260804c" defer></script>
 </body>
 </html>

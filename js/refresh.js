@@ -1,11 +1,11 @@
 /**
- * Signage auto-refresh — clock-aligned every 10 minutes
- * Triggers at :00, :10, :20, :30, :40, :50
+ * Signage auto-refresh — clock-aligned every 30 minutes
+ * Triggers at :00 and :30
  */
 (() => {
   "use strict";
 
-  const SLOT_MS = 10 * 60 * 1000;
+  const SLOT_MS = 30 * 60 * 1000;
 
   const msUntilNextSlot = () => {
     const now = new Date();

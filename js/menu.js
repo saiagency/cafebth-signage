@@ -340,35 +340,51 @@
       id: "menu2",
       layout: "platter",
       label: "Brunch",
-      priceBox: [
-        { label: "단품", value: "20,000" },
-        { label: "탄산셋트", value: "+3,000" },
-        { label: "음료셋트", value: "+5,000" },
-      ],
       items: [
         {
           id: "gwicheon",
           nameKo: "귀천플래터",
-          descKo:
-            "브레드, 베이컨, 소세지 2종, 스크램블에그, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+          price: 20000,
+          eyebrow: "Signature",
+          layout: "side-right bleed-right ov-1 z3 p-xl",
           image: "images/platter-gwicheon.jpg",
           alt: "귀천플래터",
         },
         {
           id: "noeul",
           nameKo: "노을플래터",
-          descKo:
-            "김치볶음밥, 계란후라이, 버섯, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+          price: 20000,
+          eyebrow: "Classic",
+          layout: "side-left bleed-left ov-2 z2 p-xl",
           image: "images/platter-noeul.jpg",
           alt: "노을플래터",
         },
         {
           id: "sopung",
           nameKo: "소풍플래터",
-          descKo:
-            "프렌치토스트, 풀드포크, 샐러드, 방울토마토, 리코타치즈, 베이크드빈, 블랙올리브",
+          price: 20000,
+          eyebrow: "Fresh",
+          layout: "side-right bleed-right-md ov-3 z3 p-xl",
           image: "images/platter-sopung.jpg",
           alt: "소풍플래터",
+        },
+        {
+          id: "brownie",
+          nameKo: "아이스크림브라우니",
+          price: 13000,
+          eyebrow: "Sweet",
+          layout: "side-left bleed-left-sm ov-4 z2 p-l",
+          image: "images/dessert-brownie.jpg",
+          alt: "아이스크림브라우니",
+        },
+        {
+          id: "croffle",
+          nameKo: "아이스크림크로플",
+          price: 16000,
+          eyebrow: "Dessert",
+          layout: "side-right bleed-right-sm ov-5 z3 p-l",
+          image: "images/dessert-croffle.jpg",
+          alt: "아이스크림크로플",
         },
       ],
     },
@@ -500,55 +516,44 @@
   };
 
   const renderPlatterItem = (item, index) => {
-    const delay = Math.min(index * 120, 480);
+    const num = String(index + 1).padStart(2, "0");
+    const layout = escapeHtml(item.layout || "");
+
     return `
       <article
-        class="platter-card"
-        style="--enter-delay: ${delay}ms"
+        class="platter-item ${layout}"
         data-menu-item
         data-platter="${escapeHtml(item.id)}"
       >
-        <div class="platter-card__media">
-          <img
-            class="platter-card__image"
-            src="${escapeHtml(item.image)}"
-            alt="${escapeHtml(item.alt || item.nameKo)}"
-            loading="eager"
-            decoding="async"
-          />
+        <div class="platter-item__plate-col">
+          <div class="platter-item__plate">
+            <img
+              class="platter-item__image"
+              src="${escapeHtml(item.image)}"
+              alt="${escapeHtml(item.alt || item.nameKo)}"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
         </div>
-        <div class="platter-card__content">
-          <h2 class="platter-card__name">${escapeHtml(item.nameKo)}</h2>
-          <p class="platter-card__desc">${escapeHtml(item.descKo)}</p>
+        <div class="platter-item__text">
+          <p class="platter-item__eyebrow">
+            <span class="platter-item__num">${num}</span>
+            ${escapeHtml(item.eyebrow || "")}
+          </p>
+          <h2 class="platter-item__name">${escapeHtml(item.nameKo)}</h2>
+          <p class="platter-item__price">${formatPrice(item.price)}</p>
         </div>
       </article>
     `;
-  };
-
-  const renderPriceBox = (page) => {
-    const box = document.getElementById("platter-pricebox");
-    if (!box || !page.priceBox) return;
-
-    box.innerHTML = page.priceBox
-      .map(
-        (row) => `
-          <li class="platter-pricebox__item">
-            <span class="platter-pricebox__label">${escapeHtml(row.label)}</span>
-            <span class="platter-pricebox__value">${escapeHtml(row.value)}</span>
-          </li>
-        `
-      )
-      .join("");
   };
 
   const renderPlatterPage = (page) => {
     const root = document.getElementById("menu-root");
     if (!root) return;
 
-    renderPriceBox(page);
-
     root.innerHTML = `
-      <div class="platter-list">
+      <div class="platter-menu">
         ${page.items.map((item, index) => renderPlatterItem(item, index)).join("")}
       </div>
     `;
@@ -611,7 +616,7 @@
      -------------------------------------------------------------------------- */
   const playEnterAnimations = (root) => {
     const targets = root.querySelectorAll(
-      "[data-menu-item], .classic-section, .platter-card"
+      "[data-menu-item], .classic-section, .platter-item"
     );
 
     if (prefersReducedMotion()) {
