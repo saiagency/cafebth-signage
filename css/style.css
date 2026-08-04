@@ -1657,7 +1657,7 @@ html:has(.menu-classic-page) body {
   font-family: "Noto Sans KR", "Pretendard", sans-serif;
   -webkit-font-smoothing: antialiased;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 html:has(.platter-page),
@@ -1673,7 +1673,7 @@ html:has(.platter-page) body {
   height: 100vh;
   height: 100dvh;
   max-height: 100dvh;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .platter-atmosphere {
@@ -1760,10 +1760,10 @@ html:has(.platter-page) body {
   height: 100%;
   max-height: 100dvh;
   margin-inline: auto;
-  padding: 1.4vh 0 0.8vh;
+  padding: 1.2vh 0 0.6vh;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -1771,7 +1771,7 @@ html:has(.platter-page) body {
   display: flex;
   justify-content: center;
   gap: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   padding-inline: 2.5vw;
   flex-shrink: 0;
 }
@@ -1795,27 +1795,6 @@ html:has(.platter-page) body {
   letter-spacing: 0.14em;
   line-height: 1;
   color: var(--platter-forest-deep);
-  overflow: visible;
-}
-
-.platter-board__title::after {
-  content: "";
-  position: absolute;
-  top: -12%;
-  bottom: -12%;
-  left: 0;
-  width: min(32vw, 260px);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 253, 248, 0.15) 25%,
-    rgba(255, 253, 248, 0.75) 50%,
-    rgba(255, 253, 248, 0.15) 75%,
-    transparent 100%
-  );
-  transform: translateX(-100vw);
-  pointer-events: none;
-  mix-blend-mode: soft-light;
 }
 
 .platter-board.is-alive .platter-board__header .platter-board__rule {
@@ -1826,7 +1805,7 @@ html:has(.platter-page) body {
   text-align: center;
   margin-bottom: 0;
   flex-shrink: 0;
-  padding-block: 1.4vh 1vh;
+  padding-block: 1vh 0.7vh;
   padding-inline: 2.5vw;
   overflow: visible;
 }
@@ -1852,10 +1831,10 @@ html:has(.platter-page) body {
   flex: 1;
   min-height: 0;
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   padding-top: 0;
-  padding-bottom: 0.4vh;
+  padding-bottom: 0.2vh;
 }
 
 .platter-menu {
@@ -1867,7 +1846,7 @@ html:has(.platter-page) body {
   width: 100%;
   height: 100%;
   margin-top: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .platter-item {
@@ -1904,11 +1883,11 @@ html:has(.platter-page) body {
   position: absolute;
   z-index: 9;
   left: 60px;
-  bottom: calc(100% + 0.6vh + 175px);
+  bottom: calc(100% + 0.6vh + 140px);
   display: block;
-  min-width: calc(min(28vw, 280px) + 110px);
-  width: calc(min(28vw, 280px) + 110px);
-  padding: 1.35em 1.7em 1.45em;
+  width: max-content;
+  min-width: 0;
+  padding: 1.35em 70px 1.45em;
   border: 2px solid rgba(176, 141, 87, 0.85);
   border-radius: 16px;
   background: rgba(255, 253, 248, 0.97);
@@ -2086,13 +2065,13 @@ html:has(.platter-page) body {
 }
 
 .platter-item.p-xl .platter-item__plate {
-  width: calc(min(34vw, 19.5vh) + 60px);
-  height: calc(min(34vw, 19.5vh) + 60px);
+  width: calc(min(34vw, 19.5vh) + 40px);
+  height: calc(min(34vw, 19.5vh) + 40px);
 }
 
 .platter-item.p-l .platter-item__plate {
-  width: calc(min(28vw, 16vh) + 60px);
-  height: calc(min(28vw, 16vh) + 60px);
+  width: calc(min(28vw, 16vh) + 40px);
+  height: calc(min(28vw, 16vh) + 40px);
 }
 
 @media (min-width: 641px) {
@@ -2120,25 +2099,25 @@ html:has(.platter-page) body {
     margin-left: -2vw;
   }
 
-  /* 01: keep clear of top clip */
+  /* 01: keep clear of top clip; tighter stack for one-screen fit */
   .platter-item.ov-1 {
-    margin-top: 0.8vh;
+    margin-top: 0.2vh;
   }
 
   .platter-item.ov-2 {
-    margin-top: calc(-8vh + 35px);
+    margin-top: calc(-8vh + 15px);
   }
 
   .platter-item.ov-3 {
-    margin-top: calc(-7vh + 35px);
+    margin-top: calc(-7vh + 15px);
   }
 
   .platter-item.ov-4 {
-    margin-top: calc(-4.5vh + 35px);
+    margin-top: calc(-4.5vh + 15px);
   }
 
   .platter-item.ov-5 {
-    margin-top: calc(-3.5vh + 35px);
+    margin-top: calc(-3.5vh + 15px);
   }
 }
 
@@ -2332,8 +2311,8 @@ html:has(.platter-page) body {
 
   .platter-item.p-xl .platter-item__plate,
   .platter-item.p-l .platter-item__plate {
-    width: calc(min(28vw, 12vh) + 60px);
-    height: calc(min(28vw, 12vh) + 60px);
+    width: calc(min(28vw, 12vh) + 40px);
+    height: calc(min(28vw, 12vh) + 40px);
   }
 
   .platter-item__name {
@@ -2364,14 +2343,6 @@ html:has(.platter-page) body {
 
   .platter-brand-mark.is-pulsing span:nth-child(3) {
     animation-delay: 0.7s;
-  }
-
-  .platter-board__title.is-shimmering::after {
-    animation: platter-title-sheen 0.75s ease-out;
-  }
-
-  .platter-board__header .platter-board__rule.is-shimmering {
-    animation: platter-rule-breathe 0.75s ease-out;
   }
 
   .platter-item__callout {
@@ -2458,11 +2429,6 @@ html:has(.platter-page) body {
     45% { opacity: 0.9; transform: scale(1.15); }
   }
 
-  @keyframes platter-title-sheen {
-    from { transform: translateX(-100vw); }
-    to { transform: translateX(calc(100vw + 100%)); }
-  }
-
   @keyframes platter-callout-sheen {
     0%,
     12% { transform: translateX(-160%) skewX(-12deg); opacity: 0; }
@@ -2497,14 +2463,8 @@ html:has(.platter-page) body {
         0 0 0 3px rgba(176, 141, 87, 0.28),
         0 0 28px rgba(255, 220, 140, 0.55),
         0 0 48px rgba(176, 141, 87, 0.28);
-      transform: scale(1.03);
+      transform: scale(1.01);
     }
-  }
-
-  @keyframes platter-rule-breathe {
-    0%,
-    100% { transform: scaleX(1); opacity: 1; }
-    40% { transform: scaleX(1.28); opacity: 0.75; }
   }
 
   @keyframes platter-plate-float {

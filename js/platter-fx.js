@@ -6,13 +6,11 @@
 
   const MOTIF_COUNT = 18;
   const FOCUS_MS = 4200;
-  const SHIMMER_MS = 6500;
 
   const prefersReducedMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let focusTimer = null;
-  let shimmerTimer = null;
   let motifRaf = null;
   let motifs = [];
   let focusCursor = 0;
@@ -103,23 +101,6 @@
     focusTimer = window.setInterval(pulse, FOCUS_MS);
   };
 
-  const startTitleShimmer = () => {
-    const title = document.querySelector(".platter-board__title");
-    const rule = document.querySelector(".platter-board__header .platter-board__rule");
-    if (!title) return;
-
-    const shimmer = () => {
-      title.classList.remove("is-shimmering");
-      rule?.classList.remove("is-shimmering");
-      void title.offsetWidth;
-      title.classList.add("is-shimmering");
-      rule?.classList.add("is-shimmering");
-    };
-
-    window.setTimeout(shimmer, 400);
-    shimmerTimer = window.setInterval(shimmer, SHIMMER_MS);
-  };
-
   const awakenChrome = () => {
     document.querySelector(".platter-board")?.classList.add("is-alive");
     document.querySelector(".platter-brand-mark")?.classList.add("is-pulsing");
@@ -129,10 +110,6 @@
     if (focusTimer) {
       window.clearInterval(focusTimer);
       focusTimer = null;
-    }
-    if (shimmerTimer) {
-      window.clearInterval(shimmerTimer);
-      shimmerTimer = null;
     }
     if (motifRaf) {
       window.cancelAnimationFrame(motifRaf);
@@ -156,7 +133,6 @@
 
     mountMotifs();
     startFocusCycle(root);
-    startTitleShimmer();
     motifRaf = window.requestAnimationFrame(tickMotifs);
     started = true;
   };
