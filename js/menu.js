@@ -7,7 +7,7 @@
   "use strict";
 
   const I18N_INTERVAL_MS = 4000;
-  const I18N_ORDER = ["en", "ja", "zh", "th"];
+  const I18N_ORDER = ["ko", "en", "ja", "zh", "th"];
 
   /* --------------------------------------------------------------------------
      Menu Data (from menu_202607.xlsx · menu sheet)
@@ -33,7 +33,11 @@
               nameZh: "天尚咖啡 (手冲咖啡)",
               nameTh: "กาแฟดริปชอนซังบยอง",
               price: 8000,
-              desc: "시나몬 뉘앙스의 스페셜티 싱글오리진 원두",
+              descKo: "시나몬 뉘앙스의 스페셜티 싱글오리진 원두",
+              descEn: "Specialty single-origin beans with a hint of cinnamon",
+              descJa: "シナモン香るスペシャルティシングルオリジン豆",
+              descZh: "带肉桂香气的精品单一产地咖啡豆",
+              descTh: "เมล็ดกาแฟสเปเชียลตี้ซิงเกิลออริจิน กลิ่นอบเชยละมุน",
               best: true,
             },
             {
@@ -43,7 +47,11 @@
               nameZh: "马扎格兰",
               nameTh: "มาซาแกรน",
               price: 8000,
-              desc: "상큼한 포르투갈식 레몬커피",
+              descKo: "상큼한 포르투갈식 레몬커피",
+              descEn: "Refreshing Portuguese-style lemon coffee",
+              descJa: "さわやかなポルトガル風レモンコーヒー",
+              descZh: "清爽的葡萄牙式柠檬咖啡",
+              descTh: "กาแฟมะนาวสไตล์โปรตุเกส สดชื่น",
               best: true,
             },
             {
@@ -53,7 +61,11 @@
               nameZh: "蟠桃气泡饮",
               nameTh: "เอเดพีชแบน",
               price: 8000,
-              desc: "스페인에서 온 납짝복숭아로 만든 에이드",
+              descKo: "스페인산 납작복숭아로 만든 에이드",
+              descEn: "Ade made with flat peaches from Spain",
+              descJa: "スペイン産ドーナツピーチのエイド",
+              descZh: "用西班牙扁桃制成的果茶",
+              descTh: "เอดจากลูกพีชแบนจากสเปน",
               best: true,
             },
           ],
@@ -133,6 +145,11 @@
               nameZh: "经典绿茶",
               nameTh: "คลาสสิกกรีน (ชาเขียว)",
               price: 7500,
+              descKo: "상큼한 풀향의 순한 녹차",
+              descEn: "Fresh, grassy green tea",
+              descJa: "爽やかな青葉香の緑茶",
+              descZh: "清新草香绿茶",
+              descTh: "ชาเขียวหอมหญ้าสด",
             },
             {
               nameKo: "그린엔젤",
@@ -141,6 +158,11 @@
               nameZh: "绿天使",
               nameTh: "กรีนแองเจิล",
               price: 7500,
+              descKo: "배·복숭아향 나는 녹차",
+              descEn: "Green tea with pear & peach",
+              descJa: "洋梨と桃の香る緑茶",
+              descZh: "梨桃香绿茶",
+              descTh: "ชาเขียวกลิ่นแพร์และพีช",
             },
             {
               nameKo: "얼그레이",
@@ -149,6 +171,11 @@
               nameZh: "伯爵茶",
               nameTh: "เอิร์ลเกรย์",
               price: 7500,
+              descKo: "베르가못 향 홍차",
+              descEn: "Bergamot-scented black tea",
+              descJa: "ベルガモット香る紅茶",
+              descZh: "佛手柑香红茶",
+              descTh: "ชาดำกลิ่นเบอร์กามอต",
             },
             {
               nameKo: "잉글리쉬 블랙퍼스트",
@@ -157,6 +184,11 @@
               nameZh: "英式早餐茶",
               nameTh: "อิงลิชเบรกฟาสต์",
               price: 7500,
+              descKo: "진하고 묵직한 홍차",
+              descEn: "Rich, full-bodied black tea",
+              descJa: "コク深い紅茶",
+              descZh: "浓郁醇厚红茶",
+              descTh: "ชาดำเข้มข้น",
             },
             {
               nameKo: "자스민",
@@ -165,6 +197,11 @@
               nameZh: "茉莉花茶",
               nameTh: "จัสมิน",
               price: 7500,
+              descKo: "자스민 꽃향 녹차",
+              descEn: "Jasmine-scented green tea",
+              descJa: "ジャスミン香る緑茶",
+              descZh: "茉莉花香绿茶",
+              descTh: "ชาเขียวกลิ่นมะลิ",
             },
             {
               nameKo: "레몬스카이",
@@ -174,6 +211,11 @@
               nameTh: "เลมอนสกาย",
               price: 7500,
               badge: "decaf",
+              descKo: "상큼한 레몬 과일차",
+              descEn: "Zesty lemon fruit tea",
+              descJa: "爽やかなレモンフルーツティー",
+              descZh: "清新柠檬果茶",
+              descTh: "ชาผลไม้เลมอนสดชื่น",
             },
             {
               nameKo: "카모마일",
@@ -183,6 +225,11 @@
               nameTh: "คาโมมายล์",
               price: 7500,
               badge: "decaf",
+              descKo: "향긋한 카모마일 허브차",
+              descEn: "Fragrant chamomile herbal tea",
+              descJa: "香り豊かなカモミールティー",
+              descZh: "香甜洋甘菊花草茶",
+              descTh: "ชาสมุนไพรคาโมมายล์หอม",
             },
             {
               nameKo: "윈터드림",
@@ -192,6 +239,11 @@
               nameTh: "วินเทอร์ดรีม",
               price: 7500,
               badge: "decaf",
+              descKo: "오렌지·시나몬향 루이보스",
+              descEn: "Orange-cinnamon rooibos tea",
+              descJa: "オレンジ・シナモン香るルイボス",
+              descZh: "橙香肉桂路易波士茶",
+              descTh: "ชารอยบอสกลิ่นส้มอบเชย",
             },
           ],
         },
@@ -538,13 +590,16 @@
     return `<span class="menu-tag menu-tag--${badge}">${BADGE_LABELS[badge]}</span>`;
   };
 
-  const renderI18nLine = (item) => {
+  const renderI18nFields = (item, fieldMap, extraClass = "", { skipKeys = [] } = {}) => {
     const langs = [
-      { key: "en", text: cleanText(item.nameEn) },
-      { key: "ja", text: cleanText(item.nameJa) },
-      { key: "zh", text: cleanText(item.nameZh) },
-      { key: "th", text: cleanText(item.nameTh) },
-    ].filter((entry) => entry.text);
+      fieldMap.ko
+        ? { key: "ko", text: cleanText(item[fieldMap.ko] || item.desc) }
+        : null,
+      { key: "en", text: cleanText(item[fieldMap.en]) },
+      { key: "ja", text: cleanText(item[fieldMap.ja]) },
+      { key: "zh", text: cleanText(item[fieldMap.zh]) },
+      { key: "th", text: cleanText(item[fieldMap.th]) },
+    ].filter((entry) => entry && entry.text && !skipKeys.includes(entry.key));
 
     if (!langs.length) return "";
 
@@ -560,19 +615,56 @@
       )
       .join("");
 
+    const className = ["classic-item__i18n", extraClass].filter(Boolean).join(" ");
+
     return `
-      <p class="classic-item__i18n" data-i18n aria-live="polite">
+      <p class="${className}" data-i18n aria-live="polite">
         ${spans}
       </p>
     `;
   };
 
-  const renderMenuItem = (item, index) => {
+  const renderI18nLine = (item, { skipEn = false } = {}) =>
+    renderI18nFields(
+      item,
+      {
+        en: "nameEn",
+        ja: "nameJa",
+        zh: "nameZh",
+        th: "nameTh",
+      },
+      "",
+      { skipKeys: skipEn ? ["en"] : [] }
+    );
+
+  const renderDescBlock = (item) =>
+    renderI18nFields(
+      item,
+      {
+        ko: "descKo",
+        en: "descEn",
+        ja: "descJa",
+        zh: "descZh",
+        th: "descTh",
+      },
+      "classic-item__i18n--desc"
+    );
+
+  const renderMenuItem = (item, index, { enBeside = false } = {}) => {
     const delay = Math.min(index * 35, 700);
-    const desc = item.desc
-      ? `<p class="classic-item__desc">${escapeHtml(item.desc)}</p>`
-      : "";
     const bestClass = item.best ? " is-best" : "";
+    const nameI18n = enBeside
+      ? renderI18nFields(
+          item,
+          {
+            en: "nameEn",
+            ja: "nameJa",
+            zh: "nameZh",
+            th: "nameTh",
+          },
+          "classic-item__i18n--beside"
+        )
+      : renderI18nLine(item);
 
     return `
       <li
@@ -584,10 +676,11 @@
           <div class="classic-item__body">
             <div class="classic-item__ko-row">
               <span class="classic-item__ko">${escapeHtml(item.nameKo)}</span>
+              ${enBeside ? nameI18n : ""}
               ${renderBadge(item.badge)}
             </div>
-            ${renderI18nLine(item)}
-            ${desc}
+            ${enBeside ? "" : nameI18n}
+            ${renderDescBlock(item)}
           </div>
           <span class="classic-item__price">${formatPrice(item.price)}</span>
         </div>
@@ -598,8 +691,11 @@
   const renderCategory = (category, categoryIndex) => {
     if (!category) return "";
 
+    const enBeside = category.id === "ronnefeldt-tea";
     const itemsHtml = category.items
-      .map((item, i) => renderMenuItem(item, categoryIndex * 8 + i))
+      .map((item, i) =>
+        renderMenuItem(item, categoryIndex * 8 + i, { enBeside })
+      )
       .join("");
 
     const footnote = category.footnote
