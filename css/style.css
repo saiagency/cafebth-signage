@@ -2883,7 +2883,7 @@ html:has(.summer-page) body {
   height: 100%;
   max-height: 100dvh;
   margin-inline: auto;
-  padding: 2.2vh 3.2vw 1000px;
+  padding: 2.8vh 3.2vw 1000px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2891,23 +2891,26 @@ html:has(.summer-page) body {
   overflow: hidden;
 }
 
+.summer-board__bird {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(2.5vh, 4.5vh, 4rem);
+  z-index: 3;
+  width: min(16vw, 150px);
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.28));
+}
+
 .summer-board__header {
-  flex-shrink: 0;
-  text-align: center;
+  display: none;
 }
 
 .summer-board__logo {
-  width: min(28vw, 360px);
-  margin: 0 auto 1.8vh;
-}
-
-.summer-board__logo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 7vh;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.28));
+  display: none;
 }
 
 .summer-board__masthead {
@@ -3004,7 +3007,7 @@ html:has(.summer-page) body {
   margin: 0;
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: clamp(1.6rem, 2.2vw, 2.8rem);
+  font-size: clamp(2.45rem, 3.3vw, 4.2rem);
   color: #fff;
   text-shadow:
     2px 3px 0 var(--summer-coral),
@@ -3019,7 +3022,7 @@ html:has(.summer-page) body {
   border: 2px dashed var(--summer-leaf);
   background: #eafaf1;
   font-family: "Poor Story", cursive;
-  font-size: clamp(0.95rem, 1.1vw, 1.35rem);
+  font-size: clamp(1.2rem, 1.4vw, 1.7rem);
   color: var(--summer-leaf);
   white-space: nowrap;
 }
@@ -3063,15 +3066,19 @@ html:has(.summer-page) body {
 }
 
 .summer-sig-list .summer-list__ko {
-  font-size: clamp(1.45rem, 1.9vw, 2.35rem);
+  font-size: clamp(2.25rem, 2.9vw, 3.6rem);
 }
 
 .summer-sig-list .summer-list__price {
-  font-size: clamp(1.45rem, 1.9vw, 2.35rem);
+  font-size: clamp(2.25rem, 2.9vw, 3.6rem);
 }
 
 .summer-sig-list .classic-item__i18n {
-  font-size: 0.72em;
+  font-size: 0.8em;
+}
+
+.summer-section--signature .summer-section__title {
+  font-size: clamp(2.55rem, 3.5vw, 4.4rem);
 }
 
 .summer-sig-row {
@@ -3153,7 +3160,7 @@ html:has(.summer-page) body {
   min-width: 0;
   flex: 1 1 auto;
   font-family: "Jua", sans-serif;
-  font-size: clamp(1.35rem, 1.8vw, 2.3rem);
+  font-size: clamp(1.7rem, 2.25vw, 2.9rem);
   color: var(--summer-ink);
   line-height: 1.25;
   word-break: keep-all;
@@ -3170,7 +3177,7 @@ html:has(.summer-page) body {
   margin: 0;
   height: 1.2em;
   font-family: "Baloo 2", sans-serif;
-  font-size: 0.68em;
+  font-size: 0.72em;
   font-weight: 700;
   font-style: normal;
   color: var(--summer-coral);
@@ -3196,7 +3203,7 @@ html:has(.summer-page) body {
   flex-shrink: 0;
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: clamp(1.3rem, 1.7vw, 2.15rem);
+  font-size: clamp(1.65rem, 2.15vw, 2.7rem);
   color: var(--summer-gold);
   white-space: nowrap;
 }
@@ -3207,7 +3214,7 @@ html:has(.summer-page) body {
   padding: 0.12em 0.65em;
   border-radius: 999px;
   font-family: "Poor Story", cursive;
-  font-size: 0.62em;
+  font-size: 0.68em;
   line-height: 1.3;
   white-space: nowrap;
 }
@@ -3228,14 +3235,7 @@ html:has(.summer-page) body {
 }
 
 .summer-board__footer {
-  flex-shrink: 0;
-  margin-top: 1.2vh;
-  text-align: center;
-  font-family: "Poor Story", cursive;
-  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
-  letter-spacing: 0.22em;
-  color: #fff;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  display: none;
 }
 
 @media (max-width: 900px) {
