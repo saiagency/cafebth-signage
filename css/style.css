@@ -2896,7 +2896,7 @@ html:has(.summer-page) body {
   left: 50%;
   bottom: clamp(2.5vh, 4.5vh, 4rem);
   z-index: 3;
-  width: min(16vw, 150px);
+  width: min(9.7vw, 90px);
   height: auto;
   transform: translateX(-50%);
   pointer-events: none;
