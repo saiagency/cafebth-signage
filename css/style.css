@@ -2716,7 +2716,7 @@ html:has(.platter-page) body {
   --summer-coral: #ff7a68;
   --summer-gold: #ffb648;
   --summer-leaf: #2fae86;
-  --summer-card: rgba(255, 250, 240, 0.93);
+  --summer-card: rgba(255, 250, 240, 0.80);
   --summer-card-line: #f0d9ae;
   --summer-muted: #5f7d8f;
   margin: 0;
