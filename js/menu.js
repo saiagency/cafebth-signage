@@ -610,7 +610,7 @@
             class="classic-item__lang${index === 0 ? " is-active" : ""}"
             data-lang="${entry.key}"
             lang="${entry.key}"
-          >${escapeHtml(entry.text)}</span>
+          ><span class="classic-item__lang-inner">${escapeHtml(entry.text)}</span></span>
         `
       )
       .join("");
@@ -1010,7 +1010,104 @@
     highlightTimer = window.setInterval(pulse, 3600);
   };
 
+  const clearI18nMarquee = (line) => {
+    line.querySelectorAll(".classic-item__lang").forEach((el) => {
+      el.classList.remove("is-marquee");
+      el.style.removeProperty("--marquee-shift");
+      el.style.removeProperty("--marquee-duration");
+      const inner = el.querySelector(".classic-item__lang-inner");
+      if (!inner) return;
+      if (typeof inner.getAnimations === "function") {
+        inner.getAnimations().forEach((anim) => anim.cancel());
+      }
+      inner.style.transform = "";
+    });
+  };
+
+  const syncSummerI18nMarquee = (root) => {
+    if (!root?.querySelector?.(".summer-menu")) return;
+
+    root.querySelectorAll(".summer-list__name [data-i18n]").forEach((line) => {
+      clearI18nMarquee(line);
+
+      if (prefersReducedMotion()) return;
+
+      const active = line.querySelector(".classic-item__lang.is-active");
+      if (!active) return;
+
+      const inner = active.querySelector(".classic-item__lang-inner");
+      if (!inner) return;
+
+      const overflow = Math.ceil(inner.scrollWidth - line.clientWidth);
+      if (overflow <= 2) return;
+
+      active.classList.add("is-marquee");
+
+      const scrollSec = Math.max(0.85, Math.min(6.5, overflow / 78));
+      const startHold = 0.2;
+      const endHold = 1;
+      const total = startHold + scrollSec + endHold;
+      const startEnd = startHold / total;
+      const scrollEnd = (startHold + scrollSec) / total;
+
+      inner.animate(
+        [
+          { transform: "translateX(0)", offset: 0 },
+          { transform: "translateX(0)", offset: startEnd },
+          { transform: `translateX(-${overflow}px)`, offset: scrollEnd },
+          { transform: `translateX(-${overflow}px)`, offset: 1 },
+        ],
+        {
+          duration: total * 1000,
+          iterations: Infinity,
+          easing: "linear",
+        }
+      );
+    });
+  };
+
+  let marqueeSyncTimer = null;
+  let marqueeResizeBound = false;
+
+  const scheduleSummerI18nMarquee = (root, delayMs = 0) => {
+    if (!root?.querySelector?.(".summer-menu")) return;
+
+    if (marqueeSyncTimer) {
+      window.clearTimeout(marqueeSyncTimer);
+      marqueeSyncTimer = null;
+    }
+
+    const run = () => {
+      marqueeSyncTimer = null;
+      syncSummerI18nMarquee(root);
+    };
+
+    const kick = () => {
+      if (delayMs > 0) {
+        marqueeSyncTimer = window.setTimeout(run, delayMs);
+        return;
+      }
+      requestAnimationFrame(() => requestAnimationFrame(run));
+    };
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(kick);
+    } else {
+      kick();
+    }
+
+    if (!marqueeResizeBound) {
+      marqueeResizeBound = true;
+      window.addEventListener("resize", () => {
+        const liveRoot = document.getElementById("menu-root");
+        if (liveRoot) scheduleSummerI18nMarquee(liveRoot, 80);
+      });
+    }
+  };
+
   const applyI18nLang = (root, langKey, { animate = true } = {}) => {
+    let switched = false;
+
     root.querySelectorAll("[data-i18n]").forEach((line) => {
       const langs = [...line.querySelectorAll(".classic-item__lang")];
       if (!langs.length) return;
@@ -1022,6 +1119,9 @@
 
       if (!next) return;
       if (current === next) return;
+
+      switched = true;
+      clearI18nMarquee(line);
 
       if (!animate || prefersReducedMotion() || !current) {
         langs.forEach((el) => {
@@ -1043,6 +1143,8 @@
         current.classList.remove("is-exit");
       }, 560);
     });
+
+    scheduleSummerI18nMarquee(root, animate && switched ? 580 : 0);
   };
 
   const startI18nRotation = (root) => {

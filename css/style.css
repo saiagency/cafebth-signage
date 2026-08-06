@@ -1215,6 +1215,15 @@ html:has(.menu-classic-page) body {
   text-overflow: ellipsis;
 }
 
+.classic-item__lang-inner {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
 .classic-item__lang.is-enter {
   opacity: 0;
   transform: translateY(110%);
@@ -3176,12 +3185,33 @@ html:has(.summer-page) body {
   max-width: 100%;
   margin: 0;
   height: 1.2em;
+  overflow: hidden;
   font-family: "Baloo 2", sans-serif;
   font-size: 0.72em;
   font-weight: 700;
   font-style: normal;
   color: var(--summer-coral);
   line-height: 1.2;
+}
+
+.summer-list__name .classic-item__lang {
+  text-overflow: clip;
+}
+
+.summer-list__name .classic-item__lang-inner {
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.summer-list__name .classic-item__lang.is-marquee .classic-item__lang-inner {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summer-list__name .classic-item__lang {
+    text-overflow: ellipsis;
+  }
 }
 
 .summer-list__name .classic-item__lang[lang="zh"],
