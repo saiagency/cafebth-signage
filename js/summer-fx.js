@@ -6,7 +6,7 @@
 
   const BUBBLE_COUNT = 22;
   const DAY_END_HOUR = 17;
-  const BG_VERSION = "20260805k";
+  const BG_VERSION = "20260806a";
   const BG_DAY = `images/bg-summer-beach-day.jpg?v=${BG_VERSION}`;
   const BG_EVENING = `images/bg-summer-beach.jpg?v=${BG_VERSION}`;
 

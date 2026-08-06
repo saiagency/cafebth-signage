@@ -3075,13 +3075,6 @@ html:has(.summer-page) body {
 
 .summer-sig-list .classic-item__i18n {
   font-size: 0.8em;
-  -webkit-text-stroke: 1px #1a1a1a;
-  paint-order: stroke fill;
-  text-shadow:
-    0.5px 0 0 #1a1a1a,
-    -0.5px 0 0 #1a1a1a,
-    0 0.5px 0 #1a1a1a,
-    0 -0.5px 0 #1a1a1a;
 }
 
 .summer-section--signature .summer-section__title {
@@ -3189,13 +3182,6 @@ html:has(.summer-page) body {
   font-style: normal;
   color: var(--summer-coral);
   line-height: 1.2;
-  -webkit-text-stroke: 1px #1a1a1a;
-  paint-order: stroke fill;
-  text-shadow:
-    0.5px 0 0 #1a1a1a,
-    -0.5px 0 0 #1a1a1a,
-    0 0.5px 0 #1a1a1a,
-    0 -0.5px 0 #1a1a1a;
 }
 
 .summer-list__name .classic-item__lang[lang="zh"],
@@ -3220,6 +3206,13 @@ html:has(.summer-page) body {
   font-size: clamp(1.65rem, 2.15vw, 2.7rem);
   color: var(--summer-gold);
   white-space: nowrap;
+  -webkit-text-stroke: 1.2px #1a1a1a;
+  paint-order: stroke fill;
+  text-shadow:
+    0.6px 0 0 #1a1a1a,
+    -0.6px 0 0 #1a1a1a,
+    0 0.6px 0 #1a1a1a,
+    0 -0.6px 0 #1a1a1a;
 }
 
 .summer-tag {
