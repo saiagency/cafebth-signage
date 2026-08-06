@@ -2714,7 +2714,7 @@ html:has(.platter-page) body {
 .summer-page {
   --summer-ink: #1d3a4f;
   --summer-coral: #ff7a68;
-  --summer-gold: #ffb648;
+  --summer-gold: #d97706;
   --summer-leaf: #2fae86;
   --summer-card: rgba(255, 250, 240, 0.80);
   --summer-card-line: #f0d9ae;
@@ -2883,7 +2883,7 @@ html:has(.summer-page) body {
   height: 100%;
   max-height: 100dvh;
   margin-inline: auto;
-  padding: 2.8vh 3.2vw 1000px;
+  padding: 1.8vh 3.2vw 1000px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2956,7 +2956,7 @@ html:has(.summer-page) body {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.35vh;
+  gap: 0.7vh;
   overflow: visible;
 }
 
@@ -2964,7 +2964,7 @@ html:has(.summer-page) body {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.35vh;
+  gap: 0.7vh;
 }
 
 .summer-section {
@@ -2999,7 +2999,7 @@ html:has(.summer-page) body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  margin-bottom: 0.7vh;
+  margin-bottom: 0.35vh;
   flex-shrink: 0;
 }
 
@@ -3042,7 +3042,7 @@ html:has(.summer-page) body {
   background: var(--summer-card);
   border: 3px solid var(--summer-card-line);
   border-radius: clamp(1.2rem, 1.6vw, 2rem);
-  padding: clamp(1rem, 1.4vw, 1.8rem) clamp(1.2rem, 1.8vw, 2.4rem);
+  padding: clamp(0.65rem, 1vw, 1.2rem) clamp(1rem, 1.5vw, 2rem);
   box-shadow:
     0 10px 0 rgba(31, 60, 80, 0.08),
     0 16px 36px rgba(20, 30, 50, 0.18);
@@ -3062,7 +3062,7 @@ html:has(.summer-page) body {
 }
 
 .summer-sig-list .summer-list__item {
-  padding: 0.35em 0;
+  padding: 0.2em 0;
 }
 
 .summer-sig-list .summer-list__ko {
@@ -3070,7 +3070,7 @@ html:has(.summer-page) body {
 }
 
 .summer-sig-list .summer-list__price {
-  font-size: clamp(2.25rem, 2.9vw, 3.6rem);
+  font-size: clamp(2.55rem, 3.3vw, 4.1rem);
 }
 
 .summer-sig-list .classic-item__i18n {
@@ -3144,7 +3144,7 @@ html:has(.summer-page) body {
   justify-content: space-between;
   align-items: baseline;
   gap: 0.8rem;
-  padding: 0.45em 0;
+  padding: 0.28em 0;
   border-bottom: 2px dotted #e4d3ab;
 }
 
@@ -3203,16 +3203,9 @@ html:has(.summer-page) body {
   flex-shrink: 0;
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
-  font-size: clamp(1.65rem, 2.15vw, 2.7rem);
+  font-size: clamp(1.95rem, 2.5vw, 3.15rem);
   color: var(--summer-gold);
   white-space: nowrap;
-  -webkit-text-stroke: 1.2px #1a1a1a;
-  paint-order: stroke fill;
-  text-shadow:
-    0.6px 0 0 #1a1a1a,
-    -0.6px 0 0 #1a1a1a,
-    0 0.6px 0 #1a1a1a,
-    0 -0.6px 0 #1a1a1a;
 }
 
 .summer-tag {
