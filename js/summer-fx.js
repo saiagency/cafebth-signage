@@ -1,14 +1,17 @@
 /**
- * Menu3 summer board — floating soap bubbles + day/evening background
+ * Menu3 board — floating soap bubbles + day/evening background.
+ * 11월~1월은 겨울 낮/밤 이미지를 쓴다.
  */
 (() => {
   "use strict";
 
   const BUBBLE_COUNT = 22;
   const DAY_END_HOUR = 17;
-  const BG_VERSION = "20260806e";
+  const BG_VERSION = "20261113a";
   const BG_DAY = `images/bg-summer-beach-day.jpg?v=${BG_VERSION}`;
   const BG_EVENING = `images/bg-summer-beach.jpg?v=${BG_VERSION}`;
+  const BG_WINTER_DAY = `images/bg-winter-day.jpg?v=${BG_VERSION}`;
+  const BG_WINTER_NIGHT = `images/bg-winter-night.jpg?v=${BG_VERSION}`;
 
   const prefersReducedMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -17,13 +20,23 @@
 
   const isDaytime = (date = new Date()) => date.getHours() < DAY_END_HOUR;
 
+  /** 11월, 12월, 1월 */
+  const isWinterSeason = (date = new Date()) => {
+    const month = date.getMonth();
+    return month === 10 || month === 11 || month === 0;
+  };
+
   const applyBackground = () => {
     const img = document.querySelector(".summer-board__bg");
     if (!img) return;
 
-    const day = isDaytime();
+    const now = new Date();
+    const day = isDaytime(now);
     const mode = day ? "day" : "evening";
-    const nextSrc = day ? BG_DAY : BG_EVENING;
+    const winter = isWinterSeason(now);
+    const nextSrc = winter
+      ? (day ? BG_WINTER_DAY : BG_WINTER_NIGHT)
+      : (day ? BG_DAY : BG_EVENING);
     const board = document.querySelector(".summer-board");
 
     if (img.dataset.timeMode !== mode) {
